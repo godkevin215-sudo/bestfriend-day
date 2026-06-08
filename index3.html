@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Best Friend Day 💖</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+overflow:hidden;
+background:linear-gradient(135deg,#fdf6f9,#edf6ff,#fff8e8);
+height:100vh;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:25px;
+text-align:center;
+opacity:0;
+transform:translateX(100%);
+transition:.6s;
+}
+
+.slide.active{
+opacity:1;
+transform:translateX(0);
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+max-width:700px;
+width:90%;
+}
+
+h1{
+font-size:3rem;
+color:#2f365f;
+margin-bottom:15px;
+}
+
+h2{
+font-size:2.2rem;
+color:#2f365f;
+margin-bottom:15px;
+}
+
+p{
+font-size:1.1rem;
+line-height:1.8;
+color:#555;
+}
+
+.btn{
+margin-top:30px;
+background:#4b84d8;
+color:white;
+border:none;
+padding:15px 35px;
+border-radius:50px;
+font-size:1rem;
+cursor:pointer;
+box-shadow:0 6px 18px rgba(75,132,216,.3);
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.album{
+width:350px;
+background:white;
+padding:15px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.album img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.memory-title{
+font-size:14px;
+letter-spacing:3px;
+color:#567;
+margin:15px 0;
+}
+
+.memory-text{
+font-style:italic;
+font-size:18px;
+padding:10px;
+}
+
+.carousel-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:20px;
+}
+
+.arrow{
+width:50px;
+height:50px;
+border:none;
+border-radius:50%;
+background:white;
+font-size:20px;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.letter{
+text-align:left;
+font-size:20px;
+line-height:2;
+}
+
+.final{
+font-size:1.3rem;
+line-height:1.8;
+}
+
+.heart{
+font-size:70px;
+animation:beat 1s infinite;
+}
+
+@keyframes beat{
+50%{transform:scale(1.15);}
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+
+<section class="slide active">
+<div class="card">
+<h1>Happy Best Friend Day 💖</h1>
+<p>
+A tiny surprise for the person who makes life brighter,
+funnier, and a whole lot better.
+</p>
+<button class="btn" onclick="nextSlide()">Open Letter →</button>
+</div>
+</section>
+
+<!-- PAGE 2 -->
+
+<section class="slide">
+<div class="card">
+<h2>To My Bestie 🌸</h2>
+
+<p>
+Best Friend Day felt incomplete without reminding you
+how much you mean to me.
+
+Thank you for every laugh, every random conversation,
+every dumb adventure, and every moment you stayed
+when things weren't easy.
+
+Life is simply better because you're in it.
+</p>
+
+<button class="btn" onclick="nextSlide()">See Our Album →</button>
+</div>
+</section>
+
+<!-- PAGE 3 -->
+
+<section class="slide">
+
+<div class="album">
+
+<img id="memoryImage" src="memory1.jpg">
+
+<div class="memory-title" id="memoryCount">
+MEMORY 01 / 02
+</div>
+
+<div class="memory-text" id="memoryText">
+the way you laugh at your own jokes — i hope you never stop.
+</div>
+
+</div>
+
+<div class="carousel-buttons">
+<button class="arrow" onclick="prevMemory()">←</button>
+<button class="arrow" onclick="nextMemory()">→</button>
+</div>
+
+<button class="btn" onclick="nextSlide()">
+Read My Letter →
+</button>
+
+</section>
+
+<!-- PAGE 4 -->
+
+<section class="slide">
+
+<div class="card">
+
+<h2>Dear Bestie,</h2>
+
+<div class="letter">
+
+<p>
+I'm not great at saying soft stuff to your face,
+so I made this little page instead.
+
+Thank you for being the loudest,
+most chaotic, most reliable person in my corner.
+
+For the late-night talks,
+the random calls,
+the stupid jokes,
+and every time you pretended not to notice
+when I was struggling.
+
+I hope today feels like yours.
+
+I hope someone gets your order right.
+
+I hope your wifi never drops.
+
+I hope you laugh at least once for no reason.
+
+And I hope you know that even when I don't say it often—
+
+I'm really grateful you're my best friend.
+</p>
+
+</div>
+
+<button class="btn" onclick="nextSlide()">
+One Last Thing →
+</button>
+
+</div>
+
+</section>
+
+<!-- PAGE 5 -->
+
+<section class="slide">
+
+<div class="card">
+
+<div class="heart">💖</div>
+
+<h2>Thank You, Bestie.</h2>
+
+<p class="final">
+For the laughs,
+the comebacks,
+the bad jokes,
+the serious talks,
+and for simply being you.
+
+You deserve every good thing that comes your way.
+
+Happy Best Friend Day 🌷
+</p>
+
+</div>
+
+</section>
+
+<script>
+
+const slides=document.querySelectorAll('.slide');
+let currentSlide=0;
+
+function nextSlide(){
+if(currentSlide<slides.length-1){
+slides[currentSlide].classList.remove('active');
+currentSlide++;
+slides[currentSlide].classList.add('active');
+}
+}
+
+const memories=[
+{
+img:"memory1.jpg",
+count:"MEMORY 01 / 02",
+text:"the way you laugh at your own jokes — i hope you never stop."
+},
+{
+img:"memory2.jpg",
+count:"MEMORY 02 / 02",
+text:"every dumb adventure with you turned out to be the best memory."
+}
+];
+
+let currentMemory=0;
+
+function showMemory(){
+document.getElementById("memoryImage").src=memories[currentMemory].img;
+document.getElementById("memoryCount").innerText=memories[currentMemory].count;
+document.getElementById("memoryText").innerText=memories[currentMemory].text;
+}
+
+function nextMemory(){
+currentMemory=(currentMemory+1)%memories.length;
+showMemory();
+}
+
+function prevMemory(){
+currentMemory=(currentMemory-1+memories.length)%memories.length;
+showMemory();
+}
+
+</script>
+
+</body>
+</html>
