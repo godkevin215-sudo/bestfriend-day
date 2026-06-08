@@ -46,6 +46,8 @@ border-radius:25px;
 box-shadow:0 10px 30px rgba(0,0,0,.08);
 max-width:700px;
 width:90%;
+max-height:90vh;
+overflow:auto;
 }
 
 h1{
@@ -145,8 +147,19 @@ font-size:70px;
 animation:beat 1s infinite;
 }
 
+.page-image{
+width:220px;
+height:220px;
+object-fit:cover;
+border-radius:20px;
+margin-bottom:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
 @keyframes beat{
-50%{transform:scale(1.15);}
+50%{
+transform:scale(1.15);
+}
 }
 </style>
 </head>
@@ -157,8 +170,7 @@ animation:beat 1s infinite;
 <section class="slide active">
 <div class="card">
 
-<img src="image3.jpg" alt="Bestie"
-style="width:220px;height:220px;object-fit:cover;border-radius:20px;margin-bottom:20px;">
+<img src="image3.jpg" class="page-image">
 
 <h1>Happy Best Friend Day 💖</h1>
 
@@ -174,6 +186,13 @@ Open Letter →
 </div>
 </section>
 
+<!-- PAGE 2 -->
+
+<section class="slide">
+<div class="card">
+
+<h2>To My Bestie 🌸</h2>
+
 <p>
 Best Friend Day felt incomplete without reminding you
 how much you mean to me.
@@ -185,7 +204,10 @@ when things weren't easy.
 Life is simply better because you're in it.
 </p>
 
-<button class="btn" onclick="nextSlide()">See Our Album →</button>
+<button class="btn" onclick="nextSlide()">
+See Our Album →
+</button>
+
 </div>
 </section>
 
@@ -273,9 +295,7 @@ One Last Thing →
 
 <div class="card">
 
-<img src="litchi.jpg"
-alt="Litchi Bouquet"
-style="width:220px;height:220px;object-fit:cover;border-radius:20px;margin-bottom:20px;">
+<img src="litchi.jpg" class="page-image">
 
 <div class="heart">💖</div>
 
